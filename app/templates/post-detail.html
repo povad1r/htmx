@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div hx-get="{{ url_for('update_post') }}" hx-trigger="update_post_data">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>{{ post.comments_amount }}</p>
+    </div>
+    <a href="{{ url_for('add_comment_get', post_id=post.id) }}" hx-boost="true" hx-target="#commentCreate" hx-push-url="true">Add comment</a>
+    <div id="commentCreate">
+
+    </div>
+    <div id="commentsBlock">
+        {% for c in comments %}
+            <p>{{ c.content }}</p>
+        {% endfor %}
+    </div>
+    <button id="btn_back">Back</button>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

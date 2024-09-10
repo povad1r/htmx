@@ -1,0 +1,16 @@
+{% for post, like_count in posts %}
+    <div class="post">
+        <h3>{{ post.title }}</h3>
+        <img src="{{ post.image }}" alt="{{ post.title }}" style="max-width: 200px;">
+        <p>{{ post.content }}</p>
+        <button hx-post="{{ url_for('add_like', post_id=post.id) }}"
+                hx-target="#like-count-{{ post.id }}"
+                hx-swap="outerHTML">
+            Like
+        </button>
+        <span id="like-count-{{ post.id }}">{{ like_count }}</span> Likes
+    </div>
+    <hr>
+{% else %}
+    <p>No posts found matching your query.</p>
+{% endfor %}

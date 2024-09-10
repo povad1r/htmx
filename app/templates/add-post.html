@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Add a New Post</h1>
+    <form id="postForm" enctype="multipart/form-data" hx-post="/add-post" hx-target="#response" hx-swap="innerHTML">
+        <label for="title">Title:</label>
+        <input id="title" name="title" type="text" placeholder="Title" required>
+        <label for="content">Content:</label>
+        <input id="content" name="content" type="text" placeholder="Content" required>
+        <label for="image">Image:</label>
+        <input id="image" name="image" type="file" required>
+        <button type="submit">Create Post</button>
+    </form>
+    <button id="btn_back">Back</button>
+    <div id="response"></div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

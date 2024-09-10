@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Main Page{% endblock %}
+
+
+{% block content %}
+    <input id="searchInput" type="text" placeholder="Search posts..."
+        hx-get="/search-posts"
+        hx-target="#posts"
+        hx-trigger="keyup changed delay:200ms"
+        name="query">
+    <button id="loadPosts" hx-get="/load-posts" hx-target="#posts" hx-trigger="click, loadPost">Load Posts</button>
+    <div id="posts">
+
+    </div>
+
+{% endblock %}
+

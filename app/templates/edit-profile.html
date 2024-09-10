@@ -1,0 +1,6 @@
+<form hx-post="{{ url_for('update_profile') }}">
+    <input name="username" value="{{ user.username }}">
+    <button>Save</button>
+</form>
+
+<button hx-get="{{ url_for('profile_data')}}" hx-target="#profileModalDialog">Cancel</button>

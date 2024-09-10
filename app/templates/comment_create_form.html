@@ -1,0 +1,4 @@
+<form hx-post="{{ url_for('add_comment_post', post_id=post_id) }}" hx-target="#commentsBlock">
+    <textarea id="commentText"></textarea>
+    <button>Send</button>
+</form>
